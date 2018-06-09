@@ -14,5 +14,7 @@
 /vendor/assets/node_modules
 .env
 public/assets/
-.env.docker
+**/.env.docker
 coverage
+.idea/
+**/.env_file

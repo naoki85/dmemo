@@ -1,3 +1,3 @@
 #!/bin/sh
 
-exec bundle exec ./bin/rails server -e production -b 0.0.0.0
+exec bundle exec ./bin/rails s -b 0.0.0.0 -p 3000

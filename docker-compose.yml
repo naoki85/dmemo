@@ -1,9 +1,19 @@
-version: '2'
+version: '3'
 services:
   web:
-    image: hogelog/dmemo
-    env_file: .env.docker
-    volumes:
-      - ./log/docker:/app/log
+    build:
+      context: .
+      dockerfile: ./docker/web/Dockerfile
+    command: ./bin/docker_start.sh
+    env_file: ./docker/web/.env.docker
     ports:
-      - "3000:3000"
+      - 3000:3000
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    links:
+      - db
+  db:
+    image: postgres
+    env_file: ./docker/db/.env_file
