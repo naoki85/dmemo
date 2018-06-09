@@ -33,7 +33,7 @@ describe :synchronized_database, type: :request do
       dataset = schema_memo.table_memos.find_by!(name: "data_sources").raw_dataset
       expect(dataset.count).to eq(1)
       expect(dataset.columns.map(&:name)).to match_array(%w(id name description adapter host port dbname user password encoding pool created_at updated_at))
-      expect(dataset.rows.take.row[1..7]).to match_array(["dmemo", "", data_source.adapter, "localhost", "5432", data_source.dbname, data_source.user])
+      expect(dataset.rows.take.row[1..7]).to match_array(["dmemo", "", data_source.adapter, "db", "", data_source.dbname, data_source.user])
     end
 
     context "with invalid connection param" do

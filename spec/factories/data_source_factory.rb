@@ -3,8 +3,8 @@ FactoryGirl.define do
     name "dmemo"
     description "# dmemo test db\nDB for test."
     adapter { ActiveRecord::Base.establish_connection.spec.config[:adapter] }
-    host "localhost"
-    port 5432
+    host "db"
+    port ""
     dbname { ActiveRecord::Base.establish_connection.spec.config[:database] }
     user { ActiveRecord::Base.establish_connection.spec.config[:username] }
     password { ActiveRecord::Base.establish_connection.spec.config[:password] }
